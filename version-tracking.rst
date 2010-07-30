@@ -50,7 +50,8 @@ node in the new doctree.
 
 When we have an already existing doctree with ids and we are creating a new one
 we traverse both trees at the same time. Text nodes - nodes which represent
-text but may contain inline markup - are compared using a diff algorithm which
+text but may contain inline markup - or another kind of node which is specified
+as "leaf" are compared using a diff algorithm which
 has three potential outcomes:
 
 1. Both nodes are identical: This means we simply use the identifier from the
