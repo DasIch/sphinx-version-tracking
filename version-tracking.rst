@@ -65,9 +65,12 @@ has three potential outcomes:
    removes one or more nodes. What we do is that we store both nodes in two
    seperate lists and go on the next pair of nodes. If the next pair again
    is completely different we check if we have any previous cases and diff
-   against them in the hope of clearing the list. Once both trees are
-   completely traversed and the list of unindentified nodes is not empty
-   each node in it get's an identifier.
+   against them in the hope of clearing the list. If the unidentified node
+   matches against the last node in the list of identified nodes we perform
+   a shift and check the next node in the new tree against the old node in the
+   current pair. The purpose of this is to "recover" from inserts or removals.
+   Once both trees are completely traversed and the list of unindentified nodes
+   is not empty each node in it get's a new identifier.
 
 Diff Algorithm
 --------------
